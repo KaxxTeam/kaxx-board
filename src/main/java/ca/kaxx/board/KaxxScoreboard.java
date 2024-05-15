@@ -193,7 +193,7 @@ public final class KaxxScoreboard {
         }
 
         while (--i > -1) {
-            if ((currentChar = str.charAt(i)) == '§') {
+            if ((currentChar = str.charAt(i)) == 167) {
                 colorIndex = (previousChar > 106 && previousChar < 114) ? 1 : 0;
                 if (colors[colorIndex] != 0) {
                     continue;
@@ -238,7 +238,7 @@ public final class KaxxScoreboard {
         }
 
         final int length = line.length();
-        final int lag = (length > 16 && line.charAt(15) == '§') ? 1 : 0;
+        final int lag = (length > 16 && line.charAt(15) == 167) ? 1 : 0;
         final int maxPrefixLength = 16 - lag;
         final int prefixLength = Math.min(length, maxPrefixLength);
 
@@ -315,7 +315,7 @@ public final class KaxxScoreboard {
             prefix = "";
         }
 
-        final int lag = (prefixLength > 0 && prefix.charAt(15) == '§') ? 1 : 0;
+        final int lag = (prefixLength > 0 && prefix.charAt(15) == 167) ? 1 : 0;
 
         prefixLength = prefixLength - lag;
 
