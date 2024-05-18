@@ -3,7 +3,7 @@ package ca.kaxx.board.animation;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 import javax.annotation.Nonnull;
 
