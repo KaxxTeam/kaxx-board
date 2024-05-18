@@ -1,10 +1,9 @@
 package ca.kaxx.board;
 
-import ca.kaxx.board.animation.ScoreboardAnimation;
 import ca.kaxx.board.packets.*;
 import lombok.Data;
-import net.md_5.bungee.api.ChatColor;
 import net.minecraft.server.v1_8_R3.*;
+import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
@@ -43,10 +42,6 @@ public final class KaxxScoreboard {
      * {@code PacketPlayOutScoreboardDisplayObjective displayPacket = objectiveDisplay.build();}
      */
     private final PacketPlayOutScoreboardDisplayObjective displayPacket;
-    /**
-     * Private variable that represents a scoreboard animation.
-     */
-    private ScoreboardAnimation animation;
 
     /**
      * Determines whether the scoreboard has an objective.
@@ -67,8 +62,6 @@ public final class KaxxScoreboard {
         this.hasObjective = false;
 
         this.displayPacket = createObjectiveDisplay();
-
-        this.animation = new ScoreboardAnimation("Kaxx");
     }
 
     /**

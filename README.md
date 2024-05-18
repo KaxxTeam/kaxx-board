@@ -14,7 +14,7 @@ Advanced Scoreboard Management API for your Minecraft Bukkit plugins.
 
 ### Initialize the handler
 ```java
-final ScoreboardHandler scoreboardHandler = ScoreboardHandler.create(javaPlugin);
+final KaxxScoreboardHandler handler = KaxxScoreboardHandler.create(plugin);
 ```
 
 ### Create an adapter

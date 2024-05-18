@@ -36,6 +36,9 @@ public final class KaxxScoreboardUpdateTask extends BukkitRunnable {
      */
     @Override
     public void run() {
+        if (this.scoreboardHandler.getScoreboardAnimation() != null) {
+            this.scoreboardHandler.getScoreboardAnimation().buildNext();
+        }
 
         for (final Map.Entry<UUID, KaxxScoreboard> entry : scoreboardHandler.getScoreboards().entrySet()) {
             final Player player = Bukkit.getPlayer(entry.getKey());

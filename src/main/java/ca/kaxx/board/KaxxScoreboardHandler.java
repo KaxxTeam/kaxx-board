@@ -1,6 +1,7 @@
 package ca.kaxx.board;
 
 import ca.kaxx.board.adapter.KaxxScoreboardAdapter;
+import ca.kaxx.board.animation.ScoreboardAnimation;
 import ca.kaxx.board.listeners.KaxxScoreboardListener;
 import ca.kaxx.board.task.KaxxScoreboardUpdateTask;
 import com.google.common.base.Preconditions;
@@ -56,6 +57,8 @@ public final class KaxxScoreboardHandler {
      * Represents a task that updates the scoreboards for all players in the scoreboard handler.
      */
     private final KaxxScoreboardUpdateTask updateTask;
+
+    private ScoreboardAnimation scoreboardAnimation;
 
     /**
      * A class that handles the creation and management of scoreboards for players.

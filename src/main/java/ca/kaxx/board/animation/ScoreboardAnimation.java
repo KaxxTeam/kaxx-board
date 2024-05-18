@@ -17,7 +17,13 @@ public final class ScoreboardAnimation {
     /**
      * Represents a private variable for storing text to be animated on the scoreboard.
      */
-    private String text;
+    private String text,
+    /**
+     * Represents the current animation state.
+     *
+     * This variable is used to store the current animation state of a scoreboard.
+     */
+    currentAnimation;
 
     /**
      * The primary color used in the ScoreboardAnimation.
@@ -86,25 +92,22 @@ public final class ScoreboardAnimation {
     }
 
     /**
-     * Returns the animated text.
-     * <p>
-     * The method returns the formatted text with animation effect.
-     * If the cooldown is greater than 0, it returns the primaryColor with the original text.
-     * Otherwise, it returns the formatted text, where a specific character is colored differently based on the textToColorCharIndex.
-     * The animation effect consists of cycling through the characters in the text and coloring them accordingly.
-     * The secondaryColor is used to color the characters before the current index,
-     * and the primaryColor is used to color the characters from the current index onwards.
-     * If the current index is at the end of the text, textToColorCharIndex is reset to 0 and cooldown is set to 50.
-     *
-     * @return The animated text.
+     * Builds the next frame of the animation.
+     * If the cooldown is greater than 0, decreases the cooldown and updates the current animation to include the primary color.
+     * Otherwise, constructs the formatted text by appending the primary and secondary colors to the text at the specified index.
+     * If there are more characters to color, appends the next character with the secondary color.
+     * If there are more characters after the next character, appends the remaining text with the primary color.
+     * If there are no more characters to color, resets the index and sets the cooldown to 50.
+     * Sets the current animation to the constructed formatted text.
      */
-    public String getAnimatedText() {
+    public void buildNext() {
         final String textToColor = text;
 
         if (this.cooldown > 0) {
             this.cooldown--;
 
-            return primaryColor + textToColor;
+            this.currentAnimation = primaryColor + textToColor;
+            return;
         }
 
         final StringBuilder formattedText = new StringBuilder();
@@ -131,7 +134,16 @@ public final class ScoreboardAnimation {
             this.cooldown = 50;
         }
 
-        return primaryColor + formattedText.toString();
+        this.currentAnimation = primaryColor + formattedText.toString();
+    }
+
+    /**
+     * Retrieves the current animated text.
+     *
+     * @return The current animated text as a String.
+     */
+    public String getAnimatedText() {
+        return currentAnimation;
     }
 
 }
