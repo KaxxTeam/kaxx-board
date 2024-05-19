@@ -101,8 +101,8 @@ public final class KaxxScoreboard {
     /**
      * Commits a score to the scoreboard.
      *
-     * @param index The index of the score to commit.
-     * @param name The name of the score.
+     * @param index       The index of the score to commit.
+     * @param name        The name of the score.
      * @param boardAction The scoreboard action for the score.
      */
     private void commitScore(final int index, final @Nonnull String name,
@@ -134,12 +134,12 @@ public final class KaxxScoreboard {
      * Sets the title of the scoreboard.
      *
      * @param title the title to set for the scoreboard.
-     *              Must be non-null and contain 0 to 32 characters.
-     * @throws IllegalArgumentException if the title is null or contains more than 32 characters.
+     *              Must be non-null and contain 0 to 48 characters.
+     * @throws IllegalArgumentException if the title is null or contains more than 48 characters.
      */
     public void setTitle(final @Nonnull String title) {
-        if (title.length() > 32) {
-            throw new IllegalArgumentException("Title must contain 0 to 32 characters !");
+        if (title.length() > 48) {
+            throw new IllegalArgumentException("Title must contain 0 to 48 characters !");
         }
 
         final ScoreboardAction action;
@@ -165,13 +165,13 @@ public final class KaxxScoreboard {
     /**
      * Returns the last colors used in a given string.
      *
-     * @param str     the string from which to extract the last colors
-     * @param length  the length of the string
-     * @param lag     the lag value to determine the colors
+     * @param str    the string from which to extract the last colors
+     * @param length the length of the string
+     * @param lag    the lag value to determine the colors
      * @return the last colors used in the string
      */
     private String getLastColors(final @Nonnull String str, final int length, final int lag) {
-        if (length == 0){
+        if (length == 0) {
             return "";
         }
 
@@ -219,15 +219,15 @@ public final class KaxxScoreboard {
      * Sets the content of a line in the scoreboard.
      *
      * @param index The index of the line. Must be between 0 and 15.
-     * @param line The content of the line. Must be between 0 and 32 characters long.
+     * @param line  The content of the line. Must be between 0 and 48 characters long.
      * @throws IllegalArgumentException If the index is out of bounds or the line is too long.
      */
     public void setLine(final int index, final @Nonnull String line) {
         if (isUnCorrectIndex(index)) {
             throw new IllegalArgumentException("Index must be between 0 and 15 !");
         }
-        if (line.length() > 32) {
-            throw new IllegalArgumentException("Line " + index + " must contain 0 to 32 characters !");
+        if (line.length() > 48) {
+            throw new IllegalArgumentException("Line " + index + " must contain 0 to 48 characters !");
         }
 
         final int length = line.length();
@@ -237,7 +237,7 @@ public final class KaxxScoreboard {
 
         final String lastColors = getLastColors(line, prefixLength, lag);
 
-        final int maxIndex = 32 - lastColors.length();
+        final int maxIndex = 48 - lastColors.length();
 
         if (length > maxIndex) {
             throw new IllegalArgumentException("Due to colors, line " + index + " cannot be greater than "

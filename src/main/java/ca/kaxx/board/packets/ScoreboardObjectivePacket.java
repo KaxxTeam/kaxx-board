@@ -44,8 +44,8 @@ public final class ScoreboardObjectivePacket extends PacketDataSerializer {
      * Sets the title of the scoreboard.
      *
      * @param title the title to set for the scoreboard.
-     *              Must be non-null and contain 0 to 32 characters.
-     * @throws IllegalArgumentException if the title is null or contains more than 32 characters.
+     *              Must be non-null and contain 0 to 48 characters.
+     * @throws IllegalArgumentException if the title is null or contains more than 48 characters.
      */
     public void setTitle(final @Nonnull String title) {
         a(title);
